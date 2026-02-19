@@ -9,8 +9,16 @@ emotion = [record["감정"] for record in study]
 
 answer = input("상황을 입력하세요: ")
 
-if answer in situation_list:
-    p = function.find_emotion(study, answer)
+number = 0
+q = 0
+for i in range(len(situation_list)):
+    new = function.percenter(answer, situation_list[q])
+    if new >= number:
+        correct = situation_list[q]
+    q += 1
+
+if correct in situation_list:
+    p = function.find_emotion(study, correct)
     print("감정은 {}입니다".format(p))
 else:
     print("좆까세요")
